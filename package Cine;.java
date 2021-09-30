@@ -16,10 +16,6 @@ import java.util.Scanner;
 public class App {
 
 
-
-
-
-	
     public static int LeerClientes(String[] NombreUser,String[]ApellidoUser,String[]Rut,String[]Password,int[]Credit) throws FileNotFoundException{
 	Scanner Arch = new Scanner(new File("client.txt"));
 	int x = 0;
@@ -84,9 +80,11 @@ public class App {
 	
     }
 	
-    public static void AsientosSala1M(Scanner entrada,String [][]matriz){
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+    public static void AsientosSala1M(Scanner entrada,String []letras,String [][]matriz){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
+                matriz[i][0]=letras[i];
+                matriz[0][j]=""+j;
                 if((j>4 && j<25)||(i>3 )){
                     
                     matriz[i][j]="o";
@@ -96,35 +94,55 @@ public class App {
                 }
             }
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
-                
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 System.out.print(matriz[i][j]+" ");
             }
             System.out.println("");
         }
+        
         System.out.print("ingrese cuantas entradas comprara: ");
+   
         int cantEnt=entrada.nextInt();
+        
         for(int i=1;i<cantEnt+1;i++){
-            System.out.print("elija asiento numero(orientacion vertical (5-10)): ");
-            int numero1=entrada.nextInt();
-            System.out.print("elija asiento numero(orientacion vertical(6-25)): ");
-            int numero2=entrada.nextInt();
+            System.out.println("elija la letra: ");
+            String letra=entrada.next();
             
-            matriz[numero1-1][numero2-1]="1";
-             
+            for (int b=0;b<11;b++){
+                if(letra.equalsIgnoreCase(letras[b])){
+                    System.out.print("elija el numero: ");
+                    int numero=entrada.nextInt();
+                    while(matriz[b][numero]==" "){
+                    
+                        System.out.println("Asiento no valido");
+                        System.out.println("elija la letra: ");
+                        letra=entrada.next();
+                        
+                        System.out.print("elija el numero: ");
+                        numero=entrada.nextInt();
+
+                    }   
+                    matriz[b][numero]="1";
+                
+                }
+                
+            }
+
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 
                 System.out.print(matriz[i][j]+" ");
             }
             System.out.println("");
         }
     }
-    public static void AsientosSala1T(Scanner entrada, String [][]matriz2){
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+    public static void AsientosSala1T(Scanner entrada,String []letras, String [][]matriz2){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
+                matriz2[i][0]=letras[i];
+                matriz2[0][j]=""+j;
                 if((j>4 && j<25)||(i>3 )){
                     
                     matriz2[i][j]="o";
@@ -134,25 +152,44 @@ public class App {
                 }
             }
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 System.out.print(matriz2[i][j]+" ");
             }
             System.out.println("");
         }
+        
         System.out.print("ingrese cuantas entradas comprara: ");
+   
         int cantEnt=entrada.nextInt();
-        for(int i=1;i<cantEnt+1;i++){            
-            System.out.print("elija asiento numero(orientacion vertical (5-10)): ");
-            int numero1=entrada.nextInt();
-            System.out.print("elija asiento numero(orientacion vertical(6-25)): ");
-            int numero2=entrada.nextInt();
+        
+        for(int i=1;i<cantEnt+1;i++){
+            System.out.println("elija la letra: ");
+            String letra=entrada.next();
             
-            matriz2[numero1-1][numero2-1]="1";
-             
+            for (int b=0;b<11;b++){
+                if(letra.equalsIgnoreCase(letras[b])){
+                    System.out.print("elija el numero: ");
+                    int numero=entrada.nextInt();
+                    while(matriz2[b][numero]==" "){
+                    
+                        System.out.println("Asiento no valido");
+                        System.out.println("elija la letra: ");
+                        letra=entrada.next();
+                        
+                        System.out.print("elija el numero: ");
+                        numero=entrada.nextInt();
+
+                    }   
+                    matriz2[b][numero]="1";
+                
+                }
+                
+            }
+
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 
                 System.out.print(matriz2[i][j]+" ");
             }
@@ -160,9 +197,11 @@ public class App {
         }
         
     }
-    public static void AsientosSala2M(Scanner entrada,String [][]matriz3){
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+    public static void AsientosSala2M(Scanner entrada,String []letras,String [][]matriz3){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
+                matriz3[i][0]=letras[i];
+                matriz3[0][j]=""+j;
                 if((j>4 && j<25)||(i>3 )){
                     
                     matriz3[i][j]="o";
@@ -172,34 +211,55 @@ public class App {
                 }
             }
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 System.out.print(matriz3[i][j]+" ");
             }
             System.out.println("");
         }
+        
         System.out.print("ingrese cuantas entradas comprara: ");
+   
         int cantEnt=entrada.nextInt();
+        
         for(int i=1;i<cantEnt+1;i++){
-            System.out.print("elija asiento numero(orientacion vertical (5-10)): ");
-            int numero1=entrada.nextInt();
-            System.out.print("elija asiento numero(orientacion vertical(6-25)): ");
-            int numero2=entrada.nextInt();
+            System.out.println("elija la letra: ");
+            String letra=entrada.next();
             
-            matriz3[numero1-1][numero2-1]="1";
-             
+            for (int b=0;b<11;b++){
+                if(letra.equalsIgnoreCase(letras[b])){
+                    System.out.print("elija el numero: ");
+                    int numero=entrada.nextInt();
+                    while(matriz3[b][numero]==" "){
+                    
+                        System.out.println("Asiento no valido");
+                        System.out.println("elija la letra: ");
+                        letra=entrada.next();
+                        
+                        System.out.print("elija el numero: ");
+                        numero=entrada.nextInt();
+
+                    }   
+                    matriz3[b][numero]="1";
+                
+                }
+                
+            }
+
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 
                 System.out.print(matriz3[i][j]+" ");
             }
             System.out.println("");
         }
     }
-    public static void AsientosSala2T(Scanner entrada,String [][]matriz4){
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+    public static void AsientosSala2T(Scanner entrada,String []letras,String [][]matriz4){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
+                matriz4[i][0]=letras[i];
+                matriz4[0][j]=""+j;
                 if((j>4 && j<25)||(i>3 )){
                     
                     matriz4[i][j]="o";
@@ -209,34 +269,55 @@ public class App {
                 }
             }
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 System.out.print(matriz4[i][j]+" ");
             }
             System.out.println("");
         }
+        
         System.out.print("ingrese cuantas entradas comprara: ");
+   
         int cantEnt=entrada.nextInt();
+        
         for(int i=1;i<cantEnt+1;i++){
-            System.out.print("elija asiento numero(orientacion vertical (5-10)): ");
-            int numero1=entrada.nextInt();
-            System.out.print("elija asiento numero(orientacion vertical(6-25)): ");
-            int numero2=entrada.nextInt();
+            System.out.println("elija la letra: ");
+            String letra=entrada.next();
             
-            matriz4[numero1-1][numero2-1]="1";
-             
+            for (int b=0;b<11;b++){
+                if(letra.equalsIgnoreCase(letras[b])){
+                    System.out.print("elija el numero: ");
+                    int numero=entrada.nextInt();
+                    while(matriz4[b][numero]==" "){
+                    
+                        System.out.println("Asiento no valido");
+                        System.out.println("elija la letra: ");
+                        letra=entrada.next();
+                        
+                        System.out.print("elija el numero: ");
+                        numero=entrada.nextInt();
+
+                    }   
+                    matriz4[b][numero]="1";
+                
+                }
+                
+            }
+
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 
                 System.out.print(matriz4[i][j]+" ");
             }
             System.out.println("");
         }
     }
-    public static void AsientosSala3M(Scanner entrada,String [][]matriz5){
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+    public static void AsientosSala3M(Scanner entrada,String []letras,String [][]matriz5){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
+                matriz5[i][0]=letras[i];
+                matriz5[0][j]=""+j;
                 if((j>4 && j<25)||(i>3 )){
                     
                     matriz5[i][j]="o";
@@ -246,25 +327,44 @@ public class App {
                 }
             }
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 System.out.print(matriz5[i][j]+" ");
             }
             System.out.println("");
         }
+        
         System.out.print("ingrese cuantas entradas comprara: ");
+   
         int cantEnt=entrada.nextInt();
+        
         for(int i=1;i<cantEnt+1;i++){
-            System.out.print("elija asiento numero(orientacion vertical (5-10)): ");
-            int numero1=entrada.nextInt();
-            System.out.print("elija asiento numero(orientacion vertical(6-25)): ");
-            int numero2=entrada.nextInt();
+            System.out.println("elija la letra: ");
+            String letra=entrada.next();
             
-            matriz5[numero1-1][numero2-1]="1";
-             
+            for (int b=0;b<11;b++){
+                if(letra.equalsIgnoreCase(letras[b])){
+                    System.out.print("elija el numero: ");
+                    int numero=entrada.nextInt();
+                    while(matriz5[b][numero]==" "){
+                    
+                        System.out.println("Asiento no valido");
+                        System.out.println("elija la letra: ");
+                        letra=entrada.next();
+                        
+                        System.out.print("elija el numero: ");
+                        numero=entrada.nextInt();
+
+                    }   
+                    matriz5[b][numero]="1";
+                
+                }
+                
+            }
+
         }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<30;j++){
+        for(int i=0;i<11;i++){
+            for(int j=0;j<31;j++){
                 
                 System.out.print(matriz5[i][j]+" ");
             }
@@ -299,26 +399,26 @@ public class App {
         
         for(int i=1;i<cantEnt+1;i++){
             System.out.println("elija la letra: ");
-            String letra=entrada.nextLine();
+            String letra=entrada.next();
             
             for (int b=0;b<11;b++){
-                if(letras[b].equalsIgnoreCase(letra)){
+                if(letra.equalsIgnoreCase(letras[b])){
                     System.out.print("elija el numero: ");
                     int numero=entrada.nextInt();
-                    while(matriz6[b][numero-1]==" "){
+                    while(matriz6[b][numero]==" "){
                     
                         System.out.println("Asiento no valido");
                         System.out.println("elija la letra: ");
-                        letra=entrada.nextLine();
+                        letra=entrada.next();
                         
                         System.out.print("elija el numero: ");
                         numero=entrada.nextInt();
 
                     }   
-                    matriz6[b][numero-1]="1";
+                    matriz6[b][numero]="1";
                 
                 }
-                break;
+                
             }
 
         }
@@ -330,33 +430,7 @@ public class App {
             System.out.println("");
         }
     }
-    public static void elegirasiento(Scanner entrada,int cantEnt,String []letras,String [][]matriz6){
-        for(int i=1;i<cantEnt+1;i++){
-            System.out.println("elija la letra: ");
-            String letra=entrada.nextLine();
-            
-            for (int b=0;b<11;b++){
-                if(letras[b].equalsIgnoreCase(letra)){
-                    System.out.print("elija el numero: ");
-                    int numero=entrada.nextInt();
-                    while(matriz6[b][numero-1]==" "){
-                    
-                        System.out.println("Asiento no valido");
-                        System.out.println("elija la letra: ");
-                        letra=entrada.nextLine();
-                        
-                        System.out.print("elija el numero: ");
-                        numero=entrada.nextInt();
-
-                    }   
-                    matriz6[b][numero-1]="1";
-                
-                }
-                break;
-            }
-        }    
-    }
-    
+   
     public static void main(String[] args) throws FileNotFoundException {
 	Scanner entrada=new Scanner(System.in);	
 	String []Peliculas = new String[999];
@@ -389,7 +463,7 @@ public class App {
         for (int i=0;i<cantPel;i++){
             System.out.println(Peliculas[i]);
         }
-        /*
+        
         System.out.print("ingrese la pelicula: ");
         String pel= entrada.nextLine();
 	for (int i=0;i<cantPel;i++){
@@ -409,7 +483,7 @@ public class App {
         
             }
             
-        }*/
+        }
         
         System.out.print("ingrese la sala: ");
         int sala=entrada.nextInt();
@@ -418,10 +492,10 @@ public class App {
                 System.out.print("si es jornada mañana ingrese 1, si no ingrese 2: ");
                 int funcion=entrada.nextInt();
                 if(funcion==1){
-                    AsientosSala1M(entrada,matriz);
+                    AsientosSala1M(entrada,letras,matriz);
                 }else{
                     if(funcion==2){
-                        AsientosSala1T(entrada,matriz2);
+                        AsientosSala1T(entrada,letras,matriz2);
                     }
                 }
                 break;
@@ -429,10 +503,10 @@ public class App {
                 System.out.println("si es jornada mañana ingrese 1, si no ingrese 2: ");
                 funcion=entrada.nextInt();
                 if(funcion==1){
-                    AsientosSala2M(entrada, matriz3);
+                    AsientosSala2M(entrada,letras, matriz3);
                 }else{
                     if(funcion==2){
-                        AsientosSala2T(entrada, matriz4);
+                        AsientosSala2T(entrada,letras, matriz4);
                     }
                 }
                 break;
@@ -440,7 +514,7 @@ public class App {
                 System.out.print("si es jornada mañana ingrese 1, si no ingrese 2: ");
                 funcion=entrada.nextInt();
                 if(funcion==1){
-                    AsientosSala3M(entrada,matriz5);
+                    AsientosSala3M(entrada,letras,matriz5);
                 }else{
                     if(funcion==2){
                         AsientosSala3T(entrada,letras,matriz6);
@@ -451,7 +525,9 @@ public class App {
 
         }
         
-        
+        for(int a=0;a<cantClient;a++){
+           
+        }
         	
 	
     }
